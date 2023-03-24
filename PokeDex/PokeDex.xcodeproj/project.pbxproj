@@ -9,19 +9,18 @@
 /* Begin PBXBuildFile section */
 		E5C6800A29CC923B009B282E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800929CC923B009B282E /* AppDelegate.swift */; };
 		E5C6800C29CC923B009B282E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800B29CC923B009B282E /* SceneDelegate.swift */; };
-		E5C6800E29CC923B009B282E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800D29CC923B009B282E /* ViewController.swift */; };
-		E5C6801129CC923B009B282E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C6800F29CC923B009B282E /* Main.storyboard */; };
+		E5C6800E29CC923B009B282E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800D29CC923B009B282E /* HomeViewController.swift */; };
 		E5C6801429CC923B009B282E /* PokeDex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5C6801229CC923B009B282E /* PokeDex.xcdatamodeld */; };
 		E5C6801629CC923E009B282E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5C6801529CC923E009B282E /* Assets.xcassets */; };
 		E5C6801929CC923E009B282E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C6801729CC923E009B282E /* LaunchScreen.storyboard */; };
+		E5C6802229CD835D009B282E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = E5C6802129CD835D009B282E /* Moya */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E5C6800629CC923B009B282E /* PokeDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C6800929CC923B009B282E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5C6800B29CC923B009B282E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E5C6800D29CC923B009B282E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E5C6801029CC923B009B282E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E5C6800D29CC923B009B282E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E5C6801329CC923B009B282E /* PokeDex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokeDex.xcdatamodel; sourceTree = "<group>"; };
 		E5C6801529CC923E009B282E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5C6801829CC923E009B282E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C6802229CD835D009B282E /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,16 +58,95 @@
 		E5C6800829CC923B009B282E /* PokeDex */ = {
 			isa = PBXGroup;
 			children = (
-				E5C6800929CC923B009B282E /* AppDelegate.swift */,
-				E5C6800B29CC923B009B282E /* SceneDelegate.swift */,
-				E5C6800D29CC923B009B282E /* ViewController.swift */,
-				E5C6800F29CC923B009B282E /* Main.storyboard */,
-				E5C6801529CC923E009B282E /* Assets.xcassets */,
-				E5C6801729CC923E009B282E /* LaunchScreen.storyboard */,
-				E5C6801A29CC923E009B282E /* Info.plist */,
+				E5C6802329CD8389009B282E /* App */,
+				E5C6802429CD838E009B282E /* Screens */,
 				E5C6801229CC923B009B282E /* PokeDex.xcdatamodeld */,
 			);
 			path = PokeDex;
+			sourceTree = "<group>";
+		};
+		E5C6802329CD8389009B282E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E5C6802929CD83B9009B282E /* Plists */,
+				E5C6802829CD83A9009B282E /* Assets */,
+				E5C6802729CD83A2009B282E /* Core */,
+				E5C6802629CD839E009B282E /* Base */,
+				E5C6802529CD8396009B282E /* Delegates */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E5C6802429CD838E009B282E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E5C6802A29CD83EA009B282E /* Home */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E5C6802529CD8396009B282E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E5C6800B29CC923B009B282E /* SceneDelegate.swift */,
+				E5C6800929CC923B009B282E /* AppDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		E5C6802629CD839E009B282E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E5C6801729CC923E009B282E /* LaunchScreen.storyboard */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E5C6802729CD83A2009B282E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E5C6802C29CD84C5009B282E /* NetworkLayer */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E5C6802829CD83A9009B282E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E5C6801529CC923E009B282E /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E5C6802929CD83B9009B282E /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				E5C6801A29CC923E009B282E /* Info.plist */,
+			);
+			path = Plists;
+			sourceTree = "<group>";
+		};
+		E5C6802A29CD83EA009B282E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E5C6802B29CD84B2009B282E /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E5C6802B29CD84B2009B282E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5C6800D29CC923B009B282E /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5C6802C29CD84C5009B282E /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +165,9 @@
 			dependencies = (
 			);
 			name = PokeDex;
+			packageProductDependencies = (
+				E5C6802129CD835D009B282E /* Moya */,
+			);
 			productName = PokeDex;
 			productReference = E5C6800629CC923B009B282E /* PokeDex.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +196,9 @@
 				Base,
 			);
 			mainGroup = E5C67FFD29CC923B009B282E;
+			packageReferences = (
+				E5C6802029CD835D009B282E /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = E5C6800729CC923B009B282E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,7 +215,6 @@
 			files = (
 				E5C6801929CC923E009B282E /* LaunchScreen.storyboard in Resources */,
 				E5C6801629CC923E009B282E /* Assets.xcassets in Resources */,
-				E5C6801129CC923B009B282E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5C6801429CC923B009B282E /* PokeDex.xcdatamodeld in Sources */,
-				E5C6800E29CC923B009B282E /* ViewController.swift in Sources */,
+				E5C6800E29CC923B009B282E /* HomeViewController.swift in Sources */,
 				E5C6800A29CC923B009B282E /* AppDelegate.swift in Sources */,
 				E5C6800C29CC923B009B282E /* SceneDelegate.swift in Sources */,
 			);
@@ -151,14 +235,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E5C6800F29CC923B009B282E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E5C6801029CC923B009B282E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E5C6801729CC923E009B282E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -293,10 +369,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FRL9LW42K7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PokeDex/Info.plist;
+				INFOPLIST_FILE = PokeDex/App/Plists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -321,10 +396,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FRL9LW42K7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PokeDex/Info.plist;
+				INFOPLIST_FILE = PokeDex/App/Plists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -362,6 +436,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E5C6802029CD835D009B282E /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E5C6802129CD835D009B282E /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5C6802029CD835D009B282E /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E5C6801229CC923B009B282E /* PokeDex.xcdatamodeld */ = {
