@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E51CC6AE29CDC31600472E79 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CC6AD29CDC31600472E79 /* HomeViewModel.swift */; };
 		E51CC6B029CDCA1300472E79 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CC6AF29CDCA1300472E79 /* Pokemon.swift */; };
+		E51CC6B329CDE82400472E79 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CC6B229CDE82400472E79 /* HomeViewCell.swift */; };
+		E51CC6B629CDE94A00472E79 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CC6B529CDE94A00472E79 /* ContainerView.swift */; };
 		E56A62DE29CD99A200E32368 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A62DD29CD99A200E32368 /* Network.swift */; };
 		E5C6800A29CC923B009B282E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800929CC923B009B282E /* AppDelegate.swift */; };
 		E5C6800C29CC923B009B282E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800B29CC923B009B282E /* SceneDelegate.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		E51CC6AD29CDC31600472E79 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E51CC6AF29CDCA1300472E79 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		E51CC6B229CDE82400472E79 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		E51CC6B529CDE94A00472E79 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		E56A62DD29CD99A200E32368 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E5C6800629CC923B009B282E /* PokeDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C6800929CC923B009B282E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E51CC6B129CDE81100472E79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E51CC6B229CDE82400472E79 /* HomeViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E51CC6B429CDE92F00472E79 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				E51CC6B529CDE94A00472E79 /* ContainerView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
 		E5C67FFD29CC923B009B282E = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +102,7 @@
 		E5C6802329CD8389009B282E /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E51CC6B429CDE92F00472E79 /* ReusableViews */,
 				E5C6802929CD83B9009B282E /* Plists */,
 				E5C6802829CD83A9009B282E /* Assets */,
 				E5C6802729CD83A2009B282E /* Core */,
@@ -143,6 +164,7 @@
 		E5C6802A29CD83EA009B282E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E51CC6B129CDE81100472E79 /* View */,
 				E51CC6AC29CDC2FD00472E79 /* ViewModel */,
 				E5C6802B29CD84B2009B282E /* Controller */,
 				E51CC6AF29CDCA1300472E79 /* Pokemon.swift */,
@@ -243,6 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E51CC6B029CDCA1300472E79 /* Pokemon.swift in Sources */,
+				E51CC6B329CDE82400472E79 /* HomeViewCell.swift in Sources */,
+				E51CC6B629CDE94A00472E79 /* ContainerView.swift in Sources */,
 				E56A62DE29CD99A200E32368 /* Network.swift in Sources */,
 				E51CC6AE29CDC31600472E79 /* HomeViewModel.swift in Sources */,
 				E5C6801429CC923B009B282E /* PokeDex.xcdatamodeld in Sources */,

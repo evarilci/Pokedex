@@ -18,13 +18,17 @@ protocol HomeViewModelDelegate: AnyObject {
 protocol HomeViewModelProtocol{
     var delegate: HomeViewModelDelegate? { get set }
     func fetchPokemons()
+    func numberOfRows() -> Int
     
 }
 
-class HomeViewModel: HomeViewModelProtocol {
+final class HomeViewModel: HomeViewModelProtocol {
     weak var delegate: HomeViewModelDelegate?
-    
-    
+    var pokemon : Pokemon? {
+        didSet {
+            self.delegate?.fetchPokemonSucceed()
+        }
+    }
     func fetchPokemons() {
         provider.request(.getPokemons) { [weak self] result in
             guard let self = self else {return}
@@ -32,10 +36,9 @@ class HomeViewModel: HomeViewModelProtocol {
             case .success(let response):
                 do {
                     let pokemons = try JSONDecoder().decode(Pokemon.self, from: response.data)
-                    print(pokemons.results![0].name)
+                    self.pokemon = pokemons
                     self.delegate?.fetchPokemonSucceed()
                 } catch  {
-
                     self.delegate?.fetchPokemonFailed(error)
                     print("DOCA FAIL: \(error.localizedDescription)")
                 }
@@ -44,21 +47,10 @@ class HomeViewModel: HomeViewModelProtocol {
                 print("CASE.FAILURE \(error.localizedDescription)")
             }
         }
-//        provider.request(.getclefairy) { result in
-//            switch result {
-//            case .success(let response):
-//                do {
-//                    let pokemons = try JSONDecoder().decode(Clefairy.self, from: response.data)
-//                    print(pokemons.name)
-//                    
-//                } catch  {
-//                    print(error.localizedDescription)
-//                }
-//            case.failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-        
+    }
+    
+    func numberOfRows() -> Int {
+        return pokemon?.results?.count ?? 20
     }
     
 }
