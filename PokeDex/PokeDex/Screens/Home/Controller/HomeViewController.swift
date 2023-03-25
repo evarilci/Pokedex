@@ -9,10 +9,10 @@ import UIKit
 import Moya
 
 final class HomeViewController: UIViewController {
-     
-        // MARK: PROPERTIES
-        let viewModel = HomeViewModel()
-        let tableView = UITableView()
+    
+    // MARK: PROPERTIES
+    let viewModel = HomeViewModel()
+    let tableView = UITableView()
     
     // MARK: LIFECYCLE METHODS
     override func viewDidLoad() {
@@ -22,33 +22,42 @@ final class HomeViewController: UIViewController {
         tableView.delegate = self
         viewModel.fetchPokemons()
         tableView.register(HomeViewCell.self, forCellReuseIdentifier: K.cellIdentifier)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-            self.setupUI()
-        })
-        
+        setupUI()
     }
-    
     
     // MARK: UI METHOD
     func setupUI() {
-        view.addSubview(tableView)
+        let splashView = SplashScreen()
+       
         tableView.rowHeight = 75
         tableView.backgroundColor = .systemGray6
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        view.addSubview(splashView)
+        splashView.isHidden = false
+        splashView.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {[self] in
+            splashView.snp.removeConstraints()
+            splashView.isHidden = true
+            let barView = BarView()
+            self.navigationItem.titleView = barView
+            view.addSubview(tableView)
+            NSLayoutConstraint.activate([
+                tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+            self.view.layoutIfNeeded()
+        })
     }
 }
 
-
 // MARK:  UITableViewDelegate, UITableViewDataSource
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-   
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! HomeViewCell
         let pokemon = viewModel.pokemonFor(row: indexPath.row)
@@ -63,9 +72,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
-    
 }
 // MARK:  HomeViewModelDelegate
 extension HomeViewController: HomeViewModelDelegate {
@@ -74,9 +81,7 @@ extension HomeViewController: HomeViewModelDelegate {
             self.tableView.reloadData()
         }
     }
-    func fetchPokemonFailed(_: Error) {
-        
+    func fetchPokemonFailed(error: Error) {
+        print(error.localizedDescription)
     }
-    
-    
 }

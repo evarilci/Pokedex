@@ -12,7 +12,7 @@ import Moya
 
 protocol HomeViewModelDelegate: AnyObject {
     func fetchPokemonSucceed()
-    func fetchPokemonFailed(_: Error)
+    func fetchPokemonFailed(error: Error)
 }
 
 protocol HomeViewModelProtocol{
@@ -31,7 +31,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     weak var delegate: HomeViewModelDelegate?
     var pokemon : Pokemon? {
         didSet {
-          //  self.delegate?.fetchPokemonSucceed()
+        
             if (pokemon?.results!.count)! > 0 {
                 self.delegate?.fetchPokemonSucceed()
             }
@@ -42,7 +42,7 @@ final class HomeViewModel: HomeViewModelProtocol {
         didSet {
             print("******** specs come")
             print(singlePokemonSpec.count)
-          
+            
         }
     }
     
@@ -60,13 +60,13 @@ final class HomeViewModel: HomeViewModelProtocol {
                         self.fetchPokemonDetails(text: i.name ?? "ivysaur")
                     })
                 } catch  {
-                    self.delegate?.fetchPokemonFailed(error)
+                    self.delegate?.fetchPokemonFailed(error: error)
                     print("DOCA FAIL: \(error.localizedDescription)")
                 }
                 self.delegate?.fetchPokemonSucceed()
                 
             case.failure(let error):
-                self.delegate?.fetchPokemonFailed(error)
+                self.delegate?.fetchPokemonFailed(error: error)
                 print("CASE.FAILURE \(error.localizedDescription)")
             }
             
@@ -83,9 +83,11 @@ final class HomeViewModel: HomeViewModelProtocol {
                     self.singlePokemonSpec.append(specs)
                 } catch  {
                     print("SPEC FETCH DOCA ERROR: \(error.localizedDescription)")
+                    self.delegate?.fetchPokemonFailed(error: error)
                 }
             case .failure(let error):
                 print("SPEC FETCH FAIL CASE ERROR: \(error.localizedDescription)")
+                self.delegate?.fetchPokemonFailed(error: error)
             }
         }
     }
@@ -96,8 +98,8 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
     
     func pokemonFor(row at: Int) -> Result {
-           pokemon!.results![at]
-      
+        pokemon!.results![at]
+        
     }
     
     func fetchPhotoForRow(at index: Int) -> URL {
@@ -113,9 +115,7 @@ final class HomeViewModel: HomeViewModelProtocol {
             let another = "no favorite move"
             return another
         }
-        
         return favorite
-        
     }
     
 }
