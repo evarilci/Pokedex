@@ -10,12 +10,12 @@ import Kingfisher
 
 final class HomeViewCell: UITableViewCell {
     
-    var pokemon : Result? {
-        didSet {
-           configureConteiner(for: pokemon!)
-        }
-    }
-    
+//    var pokemon : Result? {
+//        didSet {
+//           configureConteiner(for: pokemon!)
+//        }
+//    }
+//
     private lazy var pokeImageView: UIImageView = {
        let iv = UIImageView()
         iv.clipsToBounds = true
@@ -32,10 +32,11 @@ final class HomeViewCell: UITableViewCell {
     }()
     
     
+    
    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureUI()
+        //configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -43,23 +44,22 @@ final class HomeViewCell: UITableViewCell {
     }
     
     
-    func configureConteiner(for result: Result) {
-        guard let name = result.name, let _ = result.url else {return}
-        //print("**********************\(name)")
-        self.nameLabel.text = name
-       // self.pokeImageView.kf.setImage(with: URL(string: imageURL))
-    }
-    func configureUI() {
-      //  addSubview(pokeImageView)
-        addSubview(nameLabel)
-       
-        nameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(4)
+    func configureConteiner(for result: Result, url: URL? = nil) {
+        
+        guard let name = result.name else {return}
+        
+        let container = ContainerView(nameLabel: name, imageURL: url!, favoriteLabel: "Favorite move: Test Move")
+        container.layer.cornerRadius = self.frame.height / 2
+        addSubview(container)
+        container.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(8)
-            make.trailing.equalToSuperview().offset(-8)
-            make.bottom.equalToSuperview().offset(-8)
+            make.trailing.equalToSuperview().inset(8)
+            make.top.equalToSuperview().offset(8)
+            make.bottom.equalToSuperview().inset(8)
         }
         
+        self.nameLabel.text = name
+        self.pokeImageView.kf.setImage(with: url)
     }
-    
+
 }

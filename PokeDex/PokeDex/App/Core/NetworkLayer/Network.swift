@@ -14,6 +14,7 @@ let provider = MoyaProvider<PokeApi>(plugins: [plugin])
 enum PokeApi{
     case getPokemons
     case getPokemonImage(text: String)
+    //added for testing purposes
     case getclefairy
 }
 
@@ -28,6 +29,7 @@ extension PokeApi: TargetType {
             return "/pokemon/"
         case .getPokemonImage(text: let text):
             return "/pokemon/\(text)/"
+            //added for testing purposes
         case .getclefairy:
             return "/pokemon/clefairy/"
         }

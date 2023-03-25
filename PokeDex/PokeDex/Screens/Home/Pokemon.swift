@@ -20,42 +20,6 @@ struct Result: Codable {
     let name: String?
     let url: String?
 }
-// MARK: - Encode/decode helpers
-
-class JSONNull: Codable, Hashable {
-
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-
-    func hash(into hasher: inout Hasher) {
-        
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
-    }
-}
-@propertyWrapper public struct NilOnFail<T: Codable>: Codable {
-    
-    public let wrappedValue: T?
-    public init(from decoder: Decoder) throws {
-        wrappedValue = try? T(from: decoder)
-    }
-    public init(_ wrappedValue: T?) {
-        self.wrappedValue = wrappedValue
-    }
-}
 
 
 

@@ -15,6 +15,7 @@
 		E51CC6BC29CEDA3400472E79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CC6BB29CEDA3400472E79 /* Constants.swift */; };
 		E51CC6BF29CEE2EB00472E79 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E51CC6BE29CEE2EB00472E79 /* SnapKit */; };
 		E51CC6C129CF21F500472E79 /* Spesifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CC6C029CF21F500472E79 /* Spesifications.swift */; };
+		E51CC6C329CF347700472E79 /* JSONNilHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CC6C229CF347700472E79 /* JSONNilHandler.swift */; };
 		E56A62DE29CD99A200E32368 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A62DD29CD99A200E32368 /* Network.swift */; };
 		E5C6800A29CC923B009B282E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800929CC923B009B282E /* AppDelegate.swift */; };
 		E5C6800C29CC923B009B282E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800B29CC923B009B282E /* SceneDelegate.swift */; };
@@ -32,6 +33,7 @@
 		E51CC6B529CDE94A00472E79 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		E51CC6BB29CEDA3400472E79 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E51CC6C029CF21F500472E79 /* Spesifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spesifications.swift; sourceTree = "<group>"; };
+		E51CC6C229CF347700472E79 /* JSONNilHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONNilHandler.swift; sourceTree = "<group>"; };
 		E56A62DD29CD99A200E32368 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E5C6800629CC923B009B282E /* PokeDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C6800929CC923B009B282E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				E51CC6BB29CEDA3400472E79 /* Constants.swift */,
+				E51CC6C229CF347700472E79 /* JSONNilHandler.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				E56A62DE29CD99A200E32368 /* Network.swift in Sources */,
 				E51CC6AE29CDC31600472E79 /* HomeViewModel.swift in Sources */,
 				E51CC6BC29CEDA3400472E79 /* Constants.swift in Sources */,
+				E51CC6C329CF347700472E79 /* JSONNilHandler.swift in Sources */,
 				E5C6801429CC923B009B282E /* PokeDex.xcdatamodeld in Sources */,
 				E5C6800E29CC923B009B282E /* HomeViewController.swift in Sources */,
 				E5C6800A29CC923B009B282E /* AppDelegate.swift in Sources */,

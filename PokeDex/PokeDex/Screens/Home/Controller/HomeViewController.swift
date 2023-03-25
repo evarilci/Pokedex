@@ -22,7 +22,7 @@ final class HomeViewController: UIViewController {
         tableView.delegate = self
         viewModel.fetchPokemons()
         tableView.register(HomeViewCell.self, forCellReuseIdentifier: K.cellIdentifier)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
             self.setupUI()
         })
         
@@ -33,6 +33,8 @@ final class HomeViewController: UIViewController {
     func setupUI() {
         view.addSubview(tableView)
         tableView.rowHeight = 75
+        tableView.backgroundColor = .systemGray6
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -50,27 +52,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! HomeViewCell
         let pokemon = viewModel.pokemonFor(row: indexPath.row)
-        cell.configureConteiner(for: pokemon)
-       
+        let url = viewModel.fetchPhotoForRow(at: indexPath.row)
+        cell.configureConteiner(for: pokemon, url: url)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
     }
-    
 }
-
-
 // MARK:  HomeViewModelDelegate
 extension HomeViewController: HomeViewModelDelegate {
     func fetchPokemonSucceed() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        
     }
-    
     func fetchPokemonFailed(_: Error) {
         
     }

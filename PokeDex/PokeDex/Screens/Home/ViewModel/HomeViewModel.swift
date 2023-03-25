@@ -21,7 +21,7 @@ protocol HomeViewModelProtocol{
     func fetchPokemonDetails(text: String)
     func numberOfRows() -> Int
     func pokemonFor(row at: Int) -> Result
-    func fetchPhotoForRow(at index: Int) -> String
+    func fetchPhotoForRow(at index: Int) -> URL
     
     
 }
@@ -30,8 +30,10 @@ final class HomeViewModel: HomeViewModelProtocol {
     weak var delegate: HomeViewModelDelegate?
     var pokemon : Pokemon? {
         didSet {
-            self.delegate?.fetchPokemonSucceed()
-            self.fetchPokemonDetails(text: pokemon?.results![1].name ?? "metapod")
+          //  self.delegate?.fetchPokemonSucceed()
+            if (pokemon?.results!.count)! > 0 {
+                self.delegate?.fetchPokemonSucceed()
+            }
         }
     }
     
@@ -39,6 +41,7 @@ final class HomeViewModel: HomeViewModelProtocol {
         didSet {
             print("******** specs come")
             print(singlePokemonSpec.count)
+          
         }
     }
     
@@ -59,6 +62,8 @@ final class HomeViewModel: HomeViewModelProtocol {
                     self.delegate?.fetchPokemonFailed(error)
                     print("DOCA FAIL: \(error.localizedDescription)")
                 }
+                self.delegate?.fetchPokemonSucceed()
+                
             case.failure(let error):
                 self.delegate?.fetchPokemonFailed(error)
                 print("CASE.FAILURE \(error.localizedDescription)")
@@ -85,7 +90,8 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
     
     func numberOfRows() -> Int {
-        pokemon!.results!.count
+        //pokemon!.results!.count
+        singlePokemonSpec.count
     }
     
     func pokemonFor(row at: Int) -> Result {
@@ -94,9 +100,13 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
     
     func fetchPhotoForRow(at index: Int) -> URL {
+        if let url = URL(string: (singlePokemonSpec[index].sprites?.frontDefault!)!) {
+            return url
+        } else {
+            return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/20.png")!
+        }
         
-        guard let url = URL(string: (singlePokemonSpec[index].sprites.other?.dreamWorld.frontDefault)!) else { return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/18.png")! }
-        return url
+      
     }
     
 }
