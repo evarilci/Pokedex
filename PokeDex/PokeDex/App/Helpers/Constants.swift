@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct K {
+    static let cellIdentifier = "cellID"
+}

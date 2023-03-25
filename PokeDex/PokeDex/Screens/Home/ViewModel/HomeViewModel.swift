@@ -19,6 +19,7 @@ protocol HomeViewModelProtocol{
     var delegate: HomeViewModelDelegate? { get set }
     func fetchPokemons()
     func numberOfRows() -> Int
+    func pokemonFor(row at: Int) -> Result
     
 }
 
@@ -37,7 +38,7 @@ final class HomeViewModel: HomeViewModelProtocol {
                 do {
                     let pokemons = try JSONDecoder().decode(Pokemon.self, from: response.data)
                     self.pokemon = pokemons
-                    self.delegate?.fetchPokemonSucceed()
+                    
                 } catch  {
                     self.delegate?.fetchPokemonFailed(error)
                     print("DOCA FAIL: \(error.localizedDescription)")
@@ -50,7 +51,12 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
     
     func numberOfRows() -> Int {
-        return pokemon?.results?.count ?? 20
+        pokemon!.results!.count
+    }
+    
+    func pokemonFor(row at: Int) -> Result {
+           pokemon!.results![at]
+      
     }
     
 }

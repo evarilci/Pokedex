@@ -11,6 +11,9 @@
 		E51CC6B029CDCA1300472E79 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CC6AF29CDCA1300472E79 /* Pokemon.swift */; };
 		E51CC6B329CDE82400472E79 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CC6B229CDE82400472E79 /* HomeViewCell.swift */; };
 		E51CC6B629CDE94A00472E79 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CC6B529CDE94A00472E79 /* ContainerView.swift */; };
+		E51CC6B929CED87400472E79 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E51CC6B829CED87400472E79 /* Kingfisher */; };
+		E51CC6BC29CEDA3400472E79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CC6BB29CEDA3400472E79 /* Constants.swift */; };
+		E51CC6BF29CEE2EB00472E79 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E51CC6BE29CEE2EB00472E79 /* SnapKit */; };
 		E56A62DE29CD99A200E32368 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A62DD29CD99A200E32368 /* Network.swift */; };
 		E5C6800A29CC923B009B282E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800929CC923B009B282E /* AppDelegate.swift */; };
 		E5C6800C29CC923B009B282E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800B29CC923B009B282E /* SceneDelegate.swift */; };
@@ -26,6 +29,7 @@
 		E51CC6AF29CDCA1300472E79 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		E51CC6B229CDE82400472E79 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		E51CC6B529CDE94A00472E79 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		E51CC6BB29CEDA3400472E79 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E56A62DD29CD99A200E32368 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E5C6800629CC923B009B282E /* PokeDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C6800929CC923B009B282E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E51CC6BF29CEE2EB00472E79 /* SnapKit in Frameworks */,
+				E51CC6B929CED87400472E79 /* Kingfisher in Frameworks */,
 				E5C6802229CD835D009B282E /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +79,14 @@
 			path = ReusableViews;
 			sourceTree = "<group>";
 		};
+		E51CC6BA29CEDA2500472E79 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E51CC6BB29CEDA3400472E79 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		E5C67FFD29CC923B009B282E = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +116,7 @@
 		E5C6802329CD8389009B282E /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E51CC6BA29CEDA2500472E79 /* Helpers */,
 				E51CC6B429CDE92F00472E79 /* ReusableViews */,
 				E5C6802929CD83B9009B282E /* Plists */,
 				E5C6802829CD83A9009B282E /* Assets */,
@@ -206,6 +221,8 @@
 			name = PokeDex;
 			packageProductDependencies = (
 				E5C6802129CD835D009B282E /* Moya */,
+				E51CC6B829CED87400472E79 /* Kingfisher */,
+				E51CC6BE29CEE2EB00472E79 /* SnapKit */,
 			);
 			productName = PokeDex;
 			productReference = E5C6800629CC923B009B282E /* PokeDex.app */;
@@ -237,6 +254,8 @@
 			mainGroup = E5C67FFD29CC923B009B282E;
 			packageReferences = (
 				E5C6802029CD835D009B282E /* XCRemoteSwiftPackageReference "Moya" */,
+				E51CC6B729CED87300472E79 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E51CC6BD29CEE2EB00472E79 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = E5C6800729CC923B009B282E /* Products */;
 			projectDirPath = "";
@@ -269,6 +288,7 @@
 				E51CC6B629CDE94A00472E79 /* ContainerView.swift in Sources */,
 				E56A62DE29CD99A200E32368 /* Network.swift in Sources */,
 				E51CC6AE29CDC31600472E79 /* HomeViewModel.swift in Sources */,
+				E51CC6BC29CEDA3400472E79 /* Constants.swift in Sources */,
 				E5C6801429CC923B009B282E /* PokeDex.xcdatamodeld in Sources */,
 				E5C6800E29CC923B009B282E /* HomeViewController.swift in Sources */,
 				E5C6800A29CC923B009B282E /* AppDelegate.swift in Sources */,
@@ -482,6 +502,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E51CC6B729CED87300472E79 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		E51CC6BD29CEE2EB00472E79 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		E5C6802029CD835D009B282E /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -493,6 +529,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E51CC6B829CED87400472E79 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E51CC6B729CED87300472E79 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		E51CC6BE29CEE2EB00472E79 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E51CC6BD29CEE2EB00472E79 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		E5C6802129CD835D009B282E /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E5C6802029CD835D009B282E /* XCRemoteSwiftPackageReference "Moya" */;
