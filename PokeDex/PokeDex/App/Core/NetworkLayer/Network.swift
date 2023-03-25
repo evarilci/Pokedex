@@ -27,7 +27,7 @@ extension PokeApi: TargetType {
         case .getPokemons:
             return "/pokemon/"
         case .getPokemonImage(text: let text):
-            return "/pokemon/\(text)"
+            return "/pokemon/\(text)/"
         case .getclefairy:
             return "/pokemon/clefairy/"
         }

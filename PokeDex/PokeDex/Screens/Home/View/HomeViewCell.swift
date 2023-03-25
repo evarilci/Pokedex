@@ -45,7 +45,7 @@ final class HomeViewCell: UITableViewCell {
     
     func configureConteiner(for result: Result) {
         guard let name = result.name, let _ = result.url else {return}
-        print("**********************\(name)")
+        //print("**********************\(name)")
         self.nameLabel.text = name
        // self.pokeImageView.kf.setImage(with: URL(string: imageURL))
     }

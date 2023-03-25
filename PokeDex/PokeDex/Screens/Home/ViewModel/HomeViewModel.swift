@@ -18,8 +18,11 @@ protocol HomeViewModelDelegate: AnyObject {
 protocol HomeViewModelProtocol{
     var delegate: HomeViewModelDelegate? { get set }
     func fetchPokemons()
+    func fetchPokemonDetails(text: String)
     func numberOfRows() -> Int
     func pokemonFor(row at: Int) -> Result
+    func fetchPhotoForRow(at index: Int) -> String
+    
     
 }
 
@@ -28,8 +31,18 @@ final class HomeViewModel: HomeViewModelProtocol {
     var pokemon : Pokemon? {
         didSet {
             self.delegate?.fetchPokemonSucceed()
+            self.fetchPokemonDetails(text: pokemon?.results![1].name ?? "metapod")
         }
     }
+    
+    var singlePokemonSpec = [Spesifications]() {
+        didSet {
+            print("******** specs come")
+            print(singlePokemonSpec.count)
+        }
+    }
+    
+    // MARK: FETCH 20 POKEMONS METHOD.
     func fetchPokemons() {
         provider.request(.getPokemons) { [weak self] result in
             guard let self = self else {return}
@@ -39,6 +52,9 @@ final class HomeViewModel: HomeViewModelProtocol {
                     let pokemons = try JSONDecoder().decode(Pokemon.self, from: response.data)
                     self.pokemon = pokemons
                     
+                    pokemons.results?.forEach({ i in
+                        self.fetchPokemonDetails(text: i.name ?? "ivysaur")
+                    })
                 } catch  {
                     self.delegate?.fetchPokemonFailed(error)
                     print("DOCA FAIL: \(error.localizedDescription)")
@@ -46,6 +62,24 @@ final class HomeViewModel: HomeViewModelProtocol {
             case.failure(let error):
                 self.delegate?.fetchPokemonFailed(error)
                 print("CASE.FAILURE \(error.localizedDescription)")
+            }
+            
+        }
+    }
+    
+    // MARK: FETCH POKEMONS DETAILS AS WELL AS IMAGE.
+    func fetchPokemonDetails(text: String) {
+        provider.request(.getPokemonImage(text: text)) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let specs = try JSONDecoder().decode(Spesifications.self, from: response.data)
+                    self.singlePokemonSpec.append(specs)
+                } catch  {
+                    print("SPEC FETCH DOCA ERROR: \(error.localizedDescription)")
+                }
+            case .failure(let error):
+                print("SPEC FETCH FAIL CASE ERROR: \(error.localizedDescription)")
             }
         }
     }
@@ -57,6 +91,12 @@ final class HomeViewModel: HomeViewModelProtocol {
     func pokemonFor(row at: Int) -> Result {
            pokemon!.results![at]
       
+    }
+    
+    func fetchPhotoForRow(at index: Int) -> URL {
+        
+        guard let url = URL(string: (singlePokemonSpec[index].sprites.other?.dreamWorld.frontDefault)!) else { return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/18.png")! }
+        return url
     }
     
 }
