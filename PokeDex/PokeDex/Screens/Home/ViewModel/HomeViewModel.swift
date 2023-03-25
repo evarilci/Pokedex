@@ -22,6 +22,7 @@ protocol HomeViewModelProtocol{
     func numberOfRows() -> Int
     func pokemonFor(row at: Int) -> Result
     func fetchPhotoForRow(at index: Int) -> URL
+    func getFavorite(at index: Int) -> String
     
     
 }
@@ -105,8 +106,16 @@ final class HomeViewModel: HomeViewModelProtocol {
         } else {
             return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/20.png")!
         }
+    }
+    
+    func getFavorite(at index: Int) -> String {
+        guard let favorite = singlePokemonSpec[index].moves![0].move?.name else {
+            let another = "no favorite move"
+            return another
+        }
         
-      
+        return favorite
+        
     }
     
 }

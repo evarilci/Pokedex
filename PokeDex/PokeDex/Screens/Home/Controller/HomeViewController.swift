@@ -53,13 +53,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! HomeViewCell
         let pokemon = viewModel.pokemonFor(row: indexPath.row)
         let url = viewModel.fetchPhotoForRow(at: indexPath.row)
-        cell.configureConteiner(for: pokemon, url: url)
+        let favoriteMove = viewModel.getFavorite(at: indexPath.row)
+        cell.configureConteiner(for: pokemon, url: url, favorite: favoriteMove)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
 }
 // MARK:  HomeViewModelDelegate
 extension HomeViewController: HomeViewModelDelegate {
