@@ -41,7 +41,7 @@ final class HomeViewCell: UITableViewCell {
         
         guard let name = result.name else {return}
         
-        let container = ContainerView(nameLabel: name, imageURL: url!, favoriteLabel: "Favorite move: \(move)")
+        let container = CellContainerView(nameLabel: name, imageURL: url!, favoriteLabel: "Favorite move: \(move)")
         container.layer.cornerRadius = self.frame.height / 2
         addSubview(container)
         container.snp.makeConstraints { make in

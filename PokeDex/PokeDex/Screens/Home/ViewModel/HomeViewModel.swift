@@ -23,25 +23,15 @@ protocol HomeViewModelProtocol{
     func pokemonFor(row at: Int) -> Result
     func fetchPhotoForRow(at index: Int) -> URL
     func getFavorite(at index: Int) -> String
-    
-    
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
     weak var delegate: HomeViewModelDelegate?
-    var pokemon : Pokemon? {
-        didSet {
-        
-            if (pokemon?.results!.count)! > 0 {
-                self.delegate?.fetchPokemonSucceed()
-            }
-        }
-    }
+    var pokemon : Pokemon? 
     
     var singlePokemonSpec = [Spesifications]() {
         didSet {
-            print("******** specs come")
-            print(singlePokemonSpec.count)
+            self.delegate?.fetchPokemonSucceed()
             
         }
     }
@@ -93,7 +83,6 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
     
     func numberOfRows() -> Int {
-        //pokemon!.results!.count
         singlePokemonSpec.count
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-final class ContainerView: UIView {
+final class CellContainerView: UIView {
    
     private lazy var pokeImageView: UIImageView = {
        let iv = UIImageView()

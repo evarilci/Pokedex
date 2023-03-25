@@ -54,5 +54,4 @@ extension PokeApi: TargetType {
         nil
     }
     
-    
 }
