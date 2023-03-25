@@ -19,6 +19,7 @@
 		E56A62DE29CD99A200E32368 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A62DD29CD99A200E32368 /* Network.swift */; };
 		E581DCF029CF471600D9D6C4 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581DCEF29CF471600D9D6C4 /* SplashScreen.swift */; };
 		E581DCF229CF4E7100D9D6C4 /* NavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581DCF129CF4E7100D9D6C4 /* NavBarView.swift */; };
+		E581DCF729CF513500D9D6C4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581DCF629CF513500D9D6C4 /* DetailViewController.swift */; };
 		E5C6800A29CC923B009B282E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800929CC923B009B282E /* AppDelegate.swift */; };
 		E5C6800C29CC923B009B282E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800B29CC923B009B282E /* SceneDelegate.swift */; };
 		E5C6800E29CC923B009B282E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800D29CC923B009B282E /* HomeViewController.swift */; };
@@ -39,6 +40,7 @@
 		E56A62DD29CD99A200E32368 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E581DCEF29CF471600D9D6C4 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		E581DCF129CF4E7100D9D6C4 /* NavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarView.swift; sourceTree = "<group>"; };
+		E581DCF629CF513500D9D6C4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E5C6800629CC923B009B282E /* PokeDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C6800929CC923B009B282E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5C6800B29CC923B009B282E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E581DCF429CF510D00D9D6C4 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E581DCF529CF511600D9D6C4 /* Controller */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		E581DCF529CF511600D9D6C4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E581DCF629CF513500D9D6C4 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E5C67FFD29CC923B009B282E = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +168,7 @@
 		E5C6802429CD838E009B282E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E581DCF429CF510D00D9D6C4 /* Detail */,
 				E5C6802A29CD83EA009B282E /* Home */,
 			);
 			path = Screens;
@@ -315,6 +334,7 @@
 				E5C6801429CC923B009B282E /* PokeDex.xcdatamodeld in Sources */,
 				E5C6800E29CC923B009B282E /* HomeViewController.swift in Sources */,
 				E5C6800A29CC923B009B282E /* AppDelegate.swift in Sources */,
+				E581DCF729CF513500D9D6C4 /* DetailViewController.swift in Sources */,
 				E51CC6C129CF21F500472E79 /* Spesifications.swift in Sources */,
 				E5C6800C29CC923B009B282E /* SceneDelegate.swift in Sources */,
 			);

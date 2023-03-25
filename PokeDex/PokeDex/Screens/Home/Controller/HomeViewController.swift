@@ -60,6 +60,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! HomeViewCell
+        cell.selectionStyle = .none
         let pokemon = viewModel.pokemonFor(row: indexPath.row)
         let url = viewModel.fetchPhotoForRow(at: indexPath.row)
         let favoriteMove = viewModel.getFavorite(at: indexPath.row)
@@ -72,6 +73,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
 // MARK:  HomeViewModelDelegate

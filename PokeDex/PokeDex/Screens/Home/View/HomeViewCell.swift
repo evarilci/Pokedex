@@ -9,13 +9,6 @@ import UIKit
 import Kingfisher
 
 final class HomeViewCell: UITableViewCell {
-    
-//    var pokemon : Result? {
-//        didSet {
-//           configureConteiner(for: pokemon!)
-//        }
-//    }
-//
     private lazy var pokeImageView: UIImageView = {
        let iv = UIImageView()
         iv.clipsToBounds = true
