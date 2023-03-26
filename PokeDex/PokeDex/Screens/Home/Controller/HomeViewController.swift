@@ -73,7 +73,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DetailViewController()
+        let viewModel = DetailViewModel()
+        let vc = DetailViewController(viewModel: viewModel)
         navigationController?.pushViewController(vc, animated: true)
         
     }

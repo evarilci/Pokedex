@@ -23,6 +23,7 @@ protocol HomeViewModelProtocol{
     func pokemonFor(row at: Int) -> Result
     func fetchPhotoForRow(at index: Int) -> URL
     func getFavorite(at index: Int) -> String
+    func getSpecForDetail(at row: Int) -> [Ability]
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
@@ -51,33 +52,27 @@ final class HomeViewModel: HomeViewModelProtocol {
                     })
                 } catch  {
                     self.delegate?.fetchPokemonFailed(error: error)
-                    print("DOCA FAIL: \(error.localizedDescription)")
                 }
                 self.delegate?.fetchPokemonSucceed()
                 
             case.failure(let error):
                 self.delegate?.fetchPokemonFailed(error: error)
-                print("CASE.FAILURE \(error.localizedDescription)")
             }
-            
         }
     }
-    
     // MARK: FETCH POKEMONS DETAILS AS WELL AS IMAGE.
     func fetchPokemonDetails(text: String) {
-        provider.request(.getPokemonImage(text: text)) { result in
+        provider.request(.getPokemonImage(text: text)) {[weak self] result in
             switch result {
             case .success(let response):
                 do {
                     let specs = try JSONDecoder().decode(Spesifications.self, from: response.data)
-                    self.singlePokemonSpec.append(specs)
+                    self?.singlePokemonSpec.append(specs)
                 } catch  {
-                    print("SPEC FETCH DOCA ERROR: \(error.localizedDescription)")
-                    self.delegate?.fetchPokemonFailed(error: error)
+                    self?.delegate?.fetchPokemonFailed(error: error)
                 }
             case .failure(let error):
-                print("SPEC FETCH FAIL CASE ERROR: \(error.localizedDescription)")
-                self.delegate?.fetchPokemonFailed(error: error)
+                self?.delegate?.fetchPokemonFailed(error: error)
             }
         }
     }
@@ -88,7 +83,6 @@ final class HomeViewModel: HomeViewModelProtocol {
     
     func pokemonFor(row at: Int) -> Result {
         pokemon!.results![at]
-        
     }
     
     func fetchPhotoForRow(at index: Int) -> URL {
@@ -101,12 +95,17 @@ final class HomeViewModel: HomeViewModelProtocol {
     
     func getFavorite(at index: Int) -> String {
         guard let favorite = singlePokemonSpec[index].moves![0].move?.name else {
-            let another = "no favorite move"
+            let another = "N/A"
             return another
         }
         return favorite
     }
     
+    func getSpecForDetail(at row: Int) -> [Ability] {
+        var ability = singlePokemonSpec[row].abilities!
+       
+        return ability
+    }
 }
 
 

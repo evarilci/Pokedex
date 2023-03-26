@@ -12,6 +12,12 @@ import Kingfisher
 final class DetailViewController: UIViewController {
     
     // MARK: PROPERTIES
+    
+    private let viewModel: DetailViewModel
+    init(viewModel: DetailViewModel) {
+        self.viewModel = viewModel
+    }
+    
     lazy var pokeImage: UIImageView = {
         let iv = UIImageView()
         
@@ -27,7 +33,7 @@ final class DetailViewController: UIViewController {
         return label
     }()
     
-     lazy var favoriteMoveLabel: UILabel = {
+     lazy var abilitiesLabel: UILabel = {
         let label = UILabel()
          label.textAlignment = .left
         label.font = UIFont(name: "Helvetica", size: 15)
@@ -46,7 +52,7 @@ final class DetailViewController: UIViewController {
     func configureUI() {
         view.addSubview(pokeImage)
         view.addSubview(nameLabel)
-        view.addSubview(favoriteMoveLabel)
+        view.addSubview(abilitiesLabel)
         pokeImage.snp.makeConstraints { make in
             make.top.equalToSuperview { view in
                 view.safeAreaLayoutGuide
@@ -55,6 +61,8 @@ final class DetailViewController: UIViewController {
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(pokeImage.snp.width)
         }
+        
+        
         
         
     }
