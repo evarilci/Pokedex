@@ -15,7 +15,7 @@ protocol CoreDataReachable where Self: UIViewController {
 
 extension CoreDataReachable {
     
-    func savePokemonToFavorites(name: String, abilityFirst: String, abilitySecond: String, image: UIImage) {
+    func savePokemonToFavorites(name: String, abilityFirst: String, abilitySecond: String, image: UIImage, completion: @escaping(String) -> Void) {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity)
@@ -24,6 +24,7 @@ extension CoreDataReachable {
         do {
             let existingPokemons = try context.fetch(fetchRequest)
             if let _ = existingPokemons.first {
+                completion("Pokemon Exists")
                 print("This pokemon has already been added to favorites")
                 return
             }
@@ -35,7 +36,7 @@ extension CoreDataReachable {
             pokemon.setValue(data, forKey: K.CoreData.image)
             try context.save()
             print("SAVE SUCCEED")
-            
+            completion("Pokemon added to favorites")
         } catch  {
             print(error.localizedDescription)
         }

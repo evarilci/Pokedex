@@ -69,8 +69,21 @@ final class DetailViewController: UIViewController {
     @objc func addFavoritesAction() {
         guard let name = self.title, let first = abilityFirst.text, let second = abilitySecond.text else {return}
         guard let image = self.pokeImage.image else {return}
-        self.savePokemonToFavorites(name: name, abilityFirst: first, abilitySecond: second, image: image)
+        self.savePokemonToFavorites(name: name, abilityFirst: first, abilitySecond: second, image: image) { string in
+            self.showToast(subtitle: string)
+        }
     }
+    
+    func showToast(subtitle: String) {
+        let toast = Toast.default(
+            image: UIImage(systemName: "checkmark.seal.fill")!,
+            title: "Done!",
+            subtitle: subtitle,
+            config: .init(direction: .top, autoHide: true, enablePanToClose: true, displayTime: 3, animationTime: 0.2, enteringAnimation: .default, exitingAnimation: .default, attachTo: nil)
+        )
+        toast.show()
+    }
+    
     
     // MARK: CONFIGURE UI METHODS
     private func configureUI() {
