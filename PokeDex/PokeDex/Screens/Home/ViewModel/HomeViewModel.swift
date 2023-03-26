@@ -23,10 +23,12 @@ protocol HomeViewModelProtocol{
     func pokemonFor(row at: Int) -> Result
     func fetchPhotoForRow(at index: Int) -> URL
     func getFavorite(at index: Int) -> String
-    func getSpecForDetail(at row: Int) -> [Ability]
+    func getSpecForDetail(at row: Int) -> AbilityAbility
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
+   
+    
     weak var delegate: HomeViewModelDelegate?
     var pokemon : Pokemon? 
     
@@ -101,10 +103,10 @@ final class HomeViewModel: HomeViewModelProtocol {
         return favorite
     }
     
-    func getSpecForDetail(at row: Int) -> [Ability] {
-        var ability = singlePokemonSpec[row].abilities!
+    func getSpecForDetail(at row: Int) -> AbilityAbility {
+        let ability = singlePokemonSpec[row].abilities?.first?.ability
        
-        return ability
+        return ability!
     }
 }
 

@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Spesifications
 struct Spesifications: Codable {
-    let abilities: [Ability]?
+    let abilities: [AbilityElement]?
     let baseExperience: Int?
     let forms: [Species]?
     let gameIndices: [GameIndex]?
@@ -45,6 +45,24 @@ struct Spesifications: Codable {
         case pastTypes = "past_types"
         case species, sprites, stats, types, weight
     }
+}
+
+// MARK: - AbilityElement
+struct AbilityElement: Codable {
+    let isHidden: Bool?
+    let slot: Int?
+    let ability: AbilityAbility?
+
+    enum CodingKeys: String, CodingKey {
+        case isHidden = "is_hidden"
+        case slot, ability
+    }
+}
+
+// MARK: - AbilityAbility
+struct AbilityAbility: Codable {
+    let name: String?
+    let url: String?
 }
 
 // MARK: - Ability

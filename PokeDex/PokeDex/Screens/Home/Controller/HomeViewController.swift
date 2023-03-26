@@ -74,7 +74,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewModel = DetailViewModel()
+        viewModel.spec = self.viewModel.getSpecForDetail(at: indexPath.row)
+        let url = self.viewModel.fetchPhotoForRow(at: indexPath.row)
+      
         let vc = DetailViewController(viewModel: viewModel)
+        vc.setImages(url: url)
         navigationController?.pushViewController(vc, animated: true)
         
     }

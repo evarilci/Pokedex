@@ -10,35 +10,36 @@ import Moya
 
 
 protocol DetailViewModelDelegate: AnyObject {
-    func fetchedAbilities(name: String, url: String)
+    func fetchedAbilities(name: String)
     func fetchFailed(error: Error)
 }
 
 protocol DetailViewModelProtocol {
     var delegate : DetailViewModelDelegate? {get set}
-    func fetchDetails()
+    func fetchDetails(for ability: AbilityAbility)
 }
 
 
 final class DetailViewModel: DetailViewModelProtocol {
     var delegate: DetailViewModelDelegate?
-    var spec : Ability?
-    var abilityResponse : [Ability]? {
+    var spec : AbilityAbility? {
+        didSet {
+            self.fetchDetails(for: spec!)
+        }
+    }
+    var abilityResponse : [AbilityAbility]? {
         didSet{
             print(abilityResponse?.count)
         }
     }
     
-    func fetchDetails() {
-        
-        guard let ability = spec?.ability?.name else {return}
-        provider.request(.getPokemonDetails(text: ability)) {[weak self] result in
-            
+    func fetchDetails(for ability: AbilityAbility){
+        provider.request(.getPokemonDetails(text: (ability.name!))) {[weak self] result in
             switch result {
             case .success(let response):
                 do {
-                    let ability = try JSONDecoder().decode(Ability.self, from: response.data)
-                  //  self?.delegate?.fetchedAbilities(name: ability.ability?.name, url: <#T##String#>)
+                    let ability = try JSONDecoder().decode(AbilityAbility.self, from: response.data)
+                    self?.delegate?.fetchedAbilities(name: ability.name ?? "N/A")
                     self?.abilityResponse?.append(ability)
                 } catch  {
                     self?.delegate?.fetchFailed(error: error)
