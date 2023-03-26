@@ -1,7 +1,8 @@
 
 # PokeDex
 
-<img width="1342" alt="Ekran Resmi 2022-11-03 22 54 00" src="">
+<img width="1342" alt="Ekran Resmi 2022-11-03 22 54 00" src="https://user-images.githubusercontent.com/10756418/227784416-6e73740d-c451-4894-ae0b-b2d80fedff00.png">
+
 
 PokeDex is designed to fetch Pokemon names, characteristics and images by consuming "pokeapi.co". User can discover pokemons, see their wonderfull abilities and catch 'em if they want. The app provides pokemon's name, favorite move, abilities and image. With the help of the API, the app is able to deliver up-to-date information. 
 
@@ -19,10 +20,10 @@ PokeDex is designed to fetch Pokemon names, characteristics and images by consum
 
 ## 🛠 Tools
 
-<a href="https://developer.apple.com/swift/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/swift/swift-original.svg" alt="swift" width="50" height="50"/> </a> <a align="left">
+<a href="https://developer.apple.com/swift/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/swift/swift-original.svg" alt="swift" width="50" height="50"/> </a> <a align="left"> <a href="https://developer.apple.com/swift/" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xcode/xcode-plain.svg" alt="swift" width="50" height="50"/> </a> <a align="left"> <a href="https://developer.apple.com/swift/" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="swift" width="50" height="50"/> </a> <a align="left">
 
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
 
