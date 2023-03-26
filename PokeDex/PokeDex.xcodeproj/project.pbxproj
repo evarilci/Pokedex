@@ -19,10 +19,13 @@
 		E56A62DE29CD99A200E32368 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A62DD29CD99A200E32368 /* Network.swift */; };
 		E5782A8F29D020D70065AF69 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5782A8E29D020D70065AF69 /* DetailViewModel.swift */; };
 		E5782A9229D0663A0065AF69 /* AbilitySelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5782A9129D0663A0065AF69 /* AbilitySelf.swift */; };
+		E5782A9529D074690065AF69 /* CoreDataReachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5782A9429D074690065AF69 /* CoreDataReachable.swift */; };
+		E5782A9829D07CBA0065AF69 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5782A9729D07CBA0065AF69 /* FavoritesViewController.swift */; };
+		E5782A9B29D07CE30065AF69 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = E5782A9A29D07CE30065AF69 /* Toast */; };
+		E5782A9D29D07DE50065AF69 /* MyPokemonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5782A9C29D07DE50065AF69 /* MyPokemonModel.swift */; };
 		E581DCF029CF471600D9D6C4 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581DCEF29CF471600D9D6C4 /* SplashScreen.swift */; };
 		E581DCF229CF4E7100D9D6C4 /* NavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581DCF129CF4E7100D9D6C4 /* NavBarView.swift */; };
 		E581DCF729CF513500D9D6C4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581DCF629CF513500D9D6C4 /* DetailViewController.swift */; };
-		E581DCF929CF56C100D9D6C4 /* DetailContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581DCF829CF56C100D9D6C4 /* DetailContainerView.swift */; };
 		E5C6800A29CC923B009B282E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800929CC923B009B282E /* AppDelegate.swift */; };
 		E5C6800C29CC923B009B282E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800B29CC923B009B282E /* SceneDelegate.swift */; };
 		E5C6800E29CC923B009B282E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6800D29CC923B009B282E /* HomeViewController.swift */; };
@@ -43,10 +46,12 @@
 		E56A62DD29CD99A200E32368 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E5782A8E29D020D70065AF69 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		E5782A9129D0663A0065AF69 /* AbilitySelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilitySelf.swift; sourceTree = "<group>"; };
+		E5782A9429D074690065AF69 /* CoreDataReachable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataReachable.swift; sourceTree = "<group>"; };
+		E5782A9729D07CBA0065AF69 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		E5782A9C29D07DE50065AF69 /* MyPokemonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonModel.swift; sourceTree = "<group>"; };
 		E581DCEF29CF471600D9D6C4 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		E581DCF129CF4E7100D9D6C4 /* NavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarView.swift; sourceTree = "<group>"; };
 		E581DCF629CF513500D9D6C4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		E581DCF829CF56C100D9D6C4 /* DetailContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContainerView.swift; sourceTree = "<group>"; };
 		E5C6800629CC923B009B282E /* PokeDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C6800929CC923B009B282E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5C6800B29CC923B009B282E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5782A9B29D07CE30065AF69 /* Toast in Frameworks */,
 				E51CC6BF29CEE2EB00472E79 /* SnapKit in Frameworks */,
 				E51CC6B929CED87400472E79 /* Kingfisher in Frameworks */,
 				E5C6802229CD835D009B282E /* Moya in Frameworks */,
@@ -93,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				E51CC6B529CDE94A00472E79 /* CellContainerView.swift */,
-				E581DCF829CF56C100D9D6C4 /* DetailContainerView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -115,12 +120,29 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E5782A9329D074540065AF69 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E5782A9429D074690065AF69 /* CoreDataReachable.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		E5782A9629D07CA40065AF69 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				E5782A9729D07CBA0065AF69 /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		E581DCF329CF502C00D9D6C4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				E51CC6AF29CDCA1300472E79 /* Pokemon.swift */,
 				E51CC6C029CF21F500472E79 /* Spesifications.swift */,
 				E5782A9129D0663A0065AF69 /* AbilitySelf.swift */,
+				E5782A9C29D07DE50065AF69 /* MyPokemonModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,6 +207,7 @@
 		E5C6802429CD838E009B282E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E5782A9629D07CA40065AF69 /* Favorites */,
 				E581DCF429CF510D00D9D6C4 /* Detail */,
 				E5C6802A29CD83EA009B282E /* Home */,
 			);
@@ -211,6 +234,7 @@
 		E5C6802729CD83A2009B282E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E5782A9329D074540065AF69 /* CoreData */,
 				E5C6802C29CD84C5009B282E /* NetworkLayer */,
 			);
 			path = Core;
@@ -279,6 +303,7 @@
 				E5C6802129CD835D009B282E /* Moya */,
 				E51CC6B829CED87400472E79 /* Kingfisher */,
 				E51CC6BE29CEE2EB00472E79 /* SnapKit */,
+				E5782A9A29D07CE30065AF69 /* Toast */,
 			);
 			productName = PokeDex;
 			productReference = E5C6800629CC923B009B282E /* PokeDex.app */;
@@ -312,6 +337,7 @@
 				E5C6802029CD835D009B282E /* XCRemoteSwiftPackageReference "Moya" */,
 				E51CC6B729CED87300472E79 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				E51CC6BD29CEE2EB00472E79 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E5782A9929D07CE30065AF69 /* XCRemoteSwiftPackageReference "toast-swift" */,
 			);
 			productRefGroup = E5C6800729CC923B009B282E /* Products */;
 			projectDirPath = "";
@@ -346,9 +372,11 @@
 				E51CC6B629CDE94A00472E79 /* CellContainerView.swift in Sources */,
 				E56A62DE29CD99A200E32368 /* Network.swift in Sources */,
 				E581DCF229CF4E7100D9D6C4 /* NavBarView.swift in Sources */,
-				E581DCF929CF56C100D9D6C4 /* DetailContainerView.swift in Sources */,
+				E5782A9D29D07DE50065AF69 /* MyPokemonModel.swift in Sources */,
+				E5782A9529D074690065AF69 /* CoreDataReachable.swift in Sources */,
 				E51CC6AE29CDC31600472E79 /* HomeViewModel.swift in Sources */,
 				E51CC6BC29CEDA3400472E79 /* Constants.swift in Sources */,
+				E5782A9829D07CBA0065AF69 /* FavoritesViewController.swift in Sources */,
 				E51CC6C329CF347700472E79 /* JSONNilHandler.swift in Sources */,
 				E581DCF029CF471600D9D6C4 /* SplashScreen.swift in Sources */,
 				E5C6801429CC923B009B282E /* PokeDex.xcdatamodeld in Sources */,
@@ -582,6 +610,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		E5782A9929D07CE30065AF69 /* XCRemoteSwiftPackageReference "toast-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BastiaanJansen/toast-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		E5C6802029CD835D009B282E /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -602,6 +638,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E51CC6BD29CEE2EB00472E79 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		E5782A9A29D07CE30065AF69 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5782A9929D07CE30065AF69 /* XCRemoteSwiftPackageReference "toast-swift" */;
+			productName = Toast;
 		};
 		E5C6802129CD835D009B282E /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;

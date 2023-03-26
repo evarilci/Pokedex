@@ -7,35 +7,33 @@
 
 import UIKit
 import Kingfisher
+import Toast
 
 
 final class DetailViewController: UIViewController {
     
-    // MARK: UI PROPERTIES
-    
-    private let viewModel: DetailViewModel
-    init(viewModel: DetailViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
     var name : String? {
         didSet {
             self.title = name
         }
     }
     
+    // MARK: VIEWMODEL INJECTION
+    private let viewModel: DetailViewModel
+    init(viewModel: DetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: UI PROPERTIES
     lazy var pokeImage: UIImageView = {
         let iv = UIImageView()
         
         return iv
     }()
-    
-    
-    
     lazy var abilityTitle: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -43,7 +41,6 @@ final class DetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     lazy var abilityFirst: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -52,7 +49,6 @@ final class DetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     lazy var abilitySecond: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -62,23 +58,29 @@ final class DetailViewController: UIViewController {
         return label
     }()
     
-    
     // MARK: LIFECYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         viewModel.delegate = self
-        //   viewModel.fetchAbilityDescription(from: "keen-eye")
+    }
+    // MARK: OBJC METHODS
+    
+    @objc func addFavoritesAction() {
+        guard let name = self.title, let first = abilityFirst.text, let second = abilitySecond.text else {return}
+        guard let image = self.pokeImage.image else {return}
+        self.savePokemonToFavorites(name: name, abilityFirst: first, abilitySecond: second, image: image)
     }
     
     // MARK: CONFIGURE UI METHODS
     private func configureUI() {
         view.backgroundColor = .systemGray6
-        
         view.addSubview(pokeImage)
         view.addSubview(abilityFirst)
         view.addSubview(abilitySecond)
         view.addSubview(abilityTitle)
+        let barButton = UIBarButtonItem(image: UIImage(systemName: "heart.circle"), style: .done, target: self, action: #selector(addFavoritesAction))
+        self.navigationItem.rightBarButtonItem = barButton
         
         abilityTitle.text = "Abilities"
         pokeImage.snp.makeConstraints { make in
@@ -110,24 +112,19 @@ final class DetailViewController: UIViewController {
             make.trailing.equalToSuperview().inset(-16)
             make.height.equalTo(70)
         }
-        
     }
     
     func setImages( url: URL) {
         self.pokeImage.kf.setImage(with: url)
     }
 }
-
-
-
+// MARK: DetailViewModelDelegate
 extension DetailViewController: DetailViewModelDelegate {
     func fetchedAbilities(name: [String], description: [String]) {
         guard let first = name.first else {return}
         guard let second = name.last else {return}
-        
         guard let firstDescription = description.first else {return}
         guard let secondDescription = description.last else {return}
-        
         self.abilityFirst.text = "\(first):  \(firstDescription)"
         self.abilitySecond.text = "\(second): \(secondDescription)"
         
@@ -137,4 +134,9 @@ extension DetailViewController: DetailViewModelDelegate {
     func fetchFailed(error: Error) {
         print("ERROR CATCHED IN DETAIL VC: \(error.localizedDescription)")
     }
+}
+
+// MARK: CoreDataReachable
+extension DetailViewController: CoreDataReachable {
+    
 }

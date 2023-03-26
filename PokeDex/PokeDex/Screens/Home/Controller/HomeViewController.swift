@@ -25,6 +25,13 @@ final class HomeViewController: UIViewController {
         setupUI()
     }
     
+    //MARK: OBJC METHODS
+    @objc func goToFavoritesAction() {
+       
+        let vc = FavoritesViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     // MARK: UI METHOD
     func setupUI() {
         let splashView = SplashScreen()
@@ -35,10 +42,12 @@ final class HomeViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(splashView)
         splashView.isHidden = false
+        self.navigationController?.isNavigationBarHidden = true
         splashView.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {[self] in
+            self.navigationController?.isNavigationBarHidden = false
             splashView.snp.removeConstraints()
             splashView.isHidden = true
             let barView = BarView()
@@ -52,7 +61,11 @@ final class HomeViewController: UIViewController {
             ])
             self.view.layoutIfNeeded()
         })
+        
+        let barButton = UIBarButtonItem(image: UIImage(systemName: "heart.circle"), style: .done, target: self, action: #selector(goToFavoritesAction))
+        self.navigationItem.rightBarButtonItem = barButton
     }
+    
 }
 
 // MARK:  UITableViewDelegate, UITableViewDataSource
