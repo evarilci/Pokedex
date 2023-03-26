@@ -25,5 +25,6 @@ PokeDex is designed to fetch Pokemon names, characteristics and images by consum
 
 ## Screenshots
 
+<img width="200" alt="Ekran Resmi 2022-11-06 21 40 14" src="https://user-images.githubusercontent.com/10756418/227785300-9358457a-367f-4fda-8672-4b3a89c6c465.png"> <img width="200" alt="Ekran Resmi 2022-11-06 21 39 44" src="https://user-images.githubusercontent.com/10756418/227785322-f05417ae-7e77-49e0-9087-ba8a52e58bc2.png"> <img width="200" alt="Ekran Resmi 2022-11-06 21 40 26" src="https://user-images.githubusercontent.com/10756418/227785327-858934a8-7aec-4982-96fb-c1a916c59e78.png"> <img width="200" alt="Ekran Resmi 2022-11-06 21 40 37" src="https://user-images.githubusercontent.com/10756418/227785331-f866c331-c723-493f-965f-f9b44a79e766.png">
 
 
