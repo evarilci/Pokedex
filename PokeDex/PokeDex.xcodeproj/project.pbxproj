@@ -23,6 +23,7 @@
 		E5782A9829D07CBA0065AF69 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5782A9729D07CBA0065AF69 /* FavoritesViewController.swift */; };
 		E5782A9B29D07CE30065AF69 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = E5782A9A29D07CE30065AF69 /* Toast */; };
 		E5782A9D29D07DE50065AF69 /* MyPokemonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5782A9C29D07DE50065AF69 /* MyPokemonModel.swift */; };
+		E5782AA129D084FF0065AF69 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5782AA029D084FF0065AF69 /* FavoritesCollectionViewCell.swift */; };
 		E581DCF029CF471600D9D6C4 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581DCEF29CF471600D9D6C4 /* SplashScreen.swift */; };
 		E581DCF229CF4E7100D9D6C4 /* NavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581DCF129CF4E7100D9D6C4 /* NavBarView.swift */; };
 		E581DCF729CF513500D9D6C4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581DCF629CF513500D9D6C4 /* DetailViewController.swift */; };
@@ -49,6 +50,7 @@
 		E5782A9429D074690065AF69 /* CoreDataReachable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataReachable.swift; sourceTree = "<group>"; };
 		E5782A9729D07CBA0065AF69 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		E5782A9C29D07DE50065AF69 /* MyPokemonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonModel.swift; sourceTree = "<group>"; };
+		E5782AA029D084FF0065AF69 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		E581DCEF29CF471600D9D6C4 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		E581DCF129CF4E7100D9D6C4 /* NavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarView.swift; sourceTree = "<group>"; };
 		E581DCF629CF513500D9D6C4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -131,9 +133,26 @@
 		E5782A9629D07CA40065AF69 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				E5782A9729D07CBA0065AF69 /* FavoritesViewController.swift */,
+				E5782A9F29D084710065AF69 /* View */,
+				E5782A9E29D084630065AF69 /* Controller */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		E5782A9E29D084630065AF69 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5782A9729D07CBA0065AF69 /* FavoritesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5782A9F29D084710065AF69 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5782AA029D084FF0065AF69 /* FavoritesCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E581DCF329CF502C00D9D6C4 /* Models */ = {
@@ -379,6 +398,7 @@
 				E5782A9829D07CBA0065AF69 /* FavoritesViewController.swift in Sources */,
 				E51CC6C329CF347700472E79 /* JSONNilHandler.swift in Sources */,
 				E581DCF029CF471600D9D6C4 /* SplashScreen.swift in Sources */,
+				E5782AA129D084FF0065AF69 /* FavoritesCollectionViewCell.swift in Sources */,
 				E5C6801429CC923B009B282E /* PokeDex.xcdatamodeld in Sources */,
 				E5C6800E29CC923B009B282E /* HomeViewController.swift in Sources */,
 				E5C6800A29CC923B009B282E /* AppDelegate.swift in Sources */,

@@ -102,14 +102,14 @@ final class DetailViewController: UIViewController {
         abilityFirst.snp.makeConstraints { make in
             make.top.equalTo(abilityTitle.snp.bottom).offset(24)
             make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().inset(-16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(70)
         }
         
         abilitySecond.snp.makeConstraints { make in
             make.top.equalTo(abilityFirst.snp.bottom).offset(24)
             make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().inset(-16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(70)
         }
     }
