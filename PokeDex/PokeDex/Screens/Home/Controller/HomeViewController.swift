@@ -76,8 +76,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let viewModel = DetailViewModel()
         viewModel.spec = self.viewModel.getSpecForDetail(at: indexPath.row)
         let url = self.viewModel.fetchPhotoForRow(at: indexPath.row)
-      
+        let name = self.viewModel.pokemonFor(row: indexPath.row).name
         let vc = DetailViewController(viewModel: viewModel)
+        vc.name = name
+            
         vc.setImages(url: url)
         navigationController?.pushViewController(vc, animated: true)
         

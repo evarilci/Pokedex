@@ -14,9 +14,14 @@ final class DetailViewController: UIViewController {
     // MARK: UI PROPERTIES
     
     private let viewModel: DetailViewModel
-        init(viewModel: DetailViewModel) {
-            self.viewModel = viewModel
-            super.init(nibName: nil, bundle: nil)
+    init(viewModel: DetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    var name : String? {
+        didSet {
+            self.title = name
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -30,28 +35,31 @@ final class DetailViewController: UIViewController {
     }()
     
     
-     lazy var nameLabel: UILabel = {
-       let label = UILabel()
+    
+    lazy var abilityTitle: UILabel = {
+        let label = UILabel()
         label.textAlignment = .left
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var abilityTitle: UILabel = {
-      let label = UILabel()
-       label.textAlignment = .left
-       label.font = .boldSystemFont(ofSize: 20)
-       label.translatesAutoresizingMaskIntoConstraints = false
-       return label
-   }()
-    
-     lazy var abilityFirst: UILabel = {
+    lazy var abilityFirst: UILabel = {
         let label = UILabel()
-         label.textAlignment = .left
+        label.textAlignment = .left
         label.font = UIFont(name: "Helvetica", size: 15)
-         label.translatesAutoresizingMaskIntoConstraints = false
-         return label
+        label.numberOfLines = .zero
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var abilitySecond: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = UIFont(name: "Helvetica", size: 15)
+        label.numberOfLines = .zero
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     
@@ -60,16 +68,18 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         viewModel.delegate = self
+        //   viewModel.fetchAbilityDescription(from: "keen-eye")
     }
     
     // MARK: CONFIGURE UI METHODS
-   private func configureUI() {
+    private func configureUI() {
         view.backgroundColor = .systemGray6
-        self.title = nameLabel.text
+        
         view.addSubview(pokeImage)
         view.addSubview(abilityFirst)
+        view.addSubview(abilitySecond)
         view.addSubview(abilityTitle)
-        view.addSubview(nameLabel)
+        
         abilityTitle.text = "Abilities"
         pokeImage.snp.makeConstraints { make in
             make.top.equalToSuperview { view in
@@ -90,8 +100,15 @@ final class DetailViewController: UIViewController {
         abilityFirst.snp.makeConstraints { make in
             make.top.equalTo(abilityTitle.snp.bottom).offset(24)
             make.leading.equalToSuperview().offset(16)
-            make.trailing.equalTo(view.snp.centerX)
-            make.height.equalTo(30)
+            make.trailing.equalToSuperview().inset(-16)
+            make.height.equalTo(70)
+        }
+        
+        abilitySecond.snp.makeConstraints { make in
+            make.top.equalTo(abilityFirst.snp.bottom).offset(24)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(-16)
+            make.height.equalTo(70)
         }
         
     }
@@ -104,13 +121,20 @@ final class DetailViewController: UIViewController {
 
 
 extension DetailViewController: DetailViewModelDelegate {
-    func fetchedAbilities(name: String) {
-    
-        self.abilityFirst.text = "\(name): "
+    func fetchedAbilities(name: [String], description: [String]) {
+        guard let first = name.first else {return}
+        guard let second = name.last else {return}
+        
+        guard let firstDescription = description.first else {return}
+        guard let secondDescription = description.last else {return}
+        
+        self.abilityFirst.text = "\(first):  \(firstDescription)"
+        self.abilitySecond.text = "\(second): \(secondDescription)"
+        
+        
     }
     
     func fetchFailed(error: Error) {
         print("ERROR CATCHED IN DETAIL VC: \(error.localizedDescription)")
     }
-    
 }

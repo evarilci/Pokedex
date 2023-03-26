@@ -15,6 +15,7 @@ enum PokeApi{
     case getPokemons
     case getPokemonImage(text: String)
     case getPokemonDetails(text: String)
+   
     //added for testing purposes
     case getclefairy
 }
