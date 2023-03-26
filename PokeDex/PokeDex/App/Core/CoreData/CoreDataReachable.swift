@@ -25,7 +25,6 @@ extension CoreDataReachable {
             let existingPokemons = try context.fetch(fetchRequest)
             if let _ = existingPokemons.first {
                 completion("Pokemon Exists")
-                print("This pokemon has already been added to favorites")
                 return
             }
             let pokemon = NSEntityDescription.insertNewObject(forEntityName: "Favorites", into: context)
@@ -35,14 +34,11 @@ extension CoreDataReachable {
             pokemon.setValue(abilitySecond, forKey: K.CoreData.AbilitySecond)
             pokemon.setValue(data, forKey: K.CoreData.image)
             try context.save()
-            print("SAVE SUCCEED")
             completion("Pokemon added to favorites")
         } catch  {
             print(error.localizedDescription)
         }
     }
-    
-    
     
     func fetchPokemon() -> [MyPokemonModel] {
         var arr = [MyPokemonModel]()
@@ -51,7 +47,7 @@ extension CoreDataReachable {
         let context = delegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: K.CoreData.Entity)
         fetchRequest.returnsObjectsAsFaults = false
-     
+        
         
         do {
             let results = try context.fetch(fetchRequest)

@@ -61,9 +61,6 @@ final class FavoritesCollectionViewCell: UICollectionViewCell {
             make.bottom.equalToSuperview().inset(4)
         }
         
-        
     }
-    
-    
     
 }

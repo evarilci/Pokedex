@@ -9,16 +9,16 @@ import UIKit
 import Kingfisher
 
 final class CellContainerView: UIView {
-   
+    
     private lazy var pokeImageView: UIImageView = {
-       let iv = UIImageView()
+        let iv = UIImageView()
         iv.clipsToBounds = true
         iv.translatesAutoresizingMaskIntoConstraints = false
-      return iv
+        return iv
     }()
     
     private lazy var nameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.textAlignment = .left
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -27,10 +27,10 @@ final class CellContainerView: UIView {
     
     private lazy var favoriteMoveLabel: UILabel = {
         let label = UILabel()
-         label.textAlignment = .left
+        label.textAlignment = .left
         label.font = UIFont(name: "Helvetica", size: 15)
-         label.translatesAutoresizingMaskIntoConstraints = false
-         return label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     init(frame: CGRect = .zero, nameLabel: String, imageURL: URL, favoriteLabel: String) {
@@ -47,12 +47,12 @@ final class CellContainerView: UIView {
         addSubview(nameLabel)
         addSubview(favoriteMoveLabel)
         self.backgroundColor = .systemGray4
-            NSLayoutConstraint.activate([
+        NSLayoutConstraint.activate([
             pokeImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
             pokeImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
             pokeImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4),
             pokeImageView.widthAnchor.constraint(equalTo: pokeImageView.heightAnchor),
-        
+            
             nameLabel.leadingAnchor.constraint(equalTo: pokeImageView.trailingAnchor, constant: 16),
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
             nameLabel.heightAnchor.constraint(equalToConstant: 20),
@@ -63,7 +63,7 @@ final class CellContainerView: UIView {
             favoriteMoveLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -8),
             favoriteMoveLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -8)
             
-     
+            
         ])
         pokeImageView.layer.cornerRadius = pokeImageView.frame.height / 5
         pokeImageView.kf.setImage(with: imageURL)

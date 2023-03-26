@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Moya
 
 final class HomeViewController: UIViewController {
     
@@ -27,7 +26,7 @@ final class HomeViewController: UIViewController {
     
     //MARK: OBJC METHODS
     @objc func goToFavoritesAction() {
-       
+        
         let vc = FavoritesViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -35,7 +34,7 @@ final class HomeViewController: UIViewController {
     // MARK: UI METHOD
     func setupUI() {
         let splashView = SplashScreen()
-       
+        
         tableView.rowHeight = 75
         tableView.backgroundColor = .systemGray6
         tableView.separatorStyle = .none
@@ -92,7 +91,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let name = self.viewModel.pokemonFor(row: indexPath.row).name
         let vc = DetailViewController(viewModel: viewModel)
         vc.name = name
-            
+        
         vc.setImages(url: url)
         navigationController?.pushViewController(vc, animated: true)
         
