@@ -11,7 +11,7 @@ import Kingfisher
 
 final class DetailViewController: UIViewController {
     
-    // MARK: PROPERTIES
+    // MARK: UI PROPERTIES
     
     private let viewModel: DetailViewModel
         init(viewModel: DetailViewModel) {
@@ -22,8 +22,6 @@ final class DetailViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
     lazy var pokeImage: UIImageView = {
         let iv = UIImageView()
@@ -65,7 +63,7 @@ final class DetailViewController: UIViewController {
     }
     
     // MARK: CONFIGURE UI METHODS
-    func configureUI() {
+   private func configureUI() {
         view.backgroundColor = .systemGray6
         self.title = nameLabel.text
         view.addSubview(pokeImage)
@@ -96,9 +94,6 @@ final class DetailViewController: UIViewController {
             make.height.equalTo(30)
         }
         
-        
-        
-        
     }
     
     func setImages( url: URL) {
@@ -117,6 +112,5 @@ extension DetailViewController: DetailViewModelDelegate {
     func fetchFailed(error: Error) {
         print("ERROR CATCHED IN DETAIL VC: \(error.localizedDescription)")
     }
-    
     
 }

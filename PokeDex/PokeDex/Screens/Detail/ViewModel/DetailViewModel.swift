@@ -16,39 +16,56 @@ protocol DetailViewModelDelegate: AnyObject {
 
 protocol DetailViewModelProtocol {
     var delegate : DetailViewModelDelegate? {get set}
-    func fetchDetails(for ability: AbilityAbility)
+    func fetchDetails(for ability: [AbilityElement])
 }
 
 
 final class DetailViewModel: DetailViewModelProtocol {
     var delegate: DetailViewModelDelegate?
-    var spec : AbilityAbility? {
+    var spec :[AbilityElement]? {
         didSet {
             self.fetchDetails(for: spec!)
+            print("SPECS:\(spec?.count) ")
         }
     }
-    var abilityResponse : [AbilityAbility]? {
-        didSet{
-            print(abilityResponse?.count)
-        }
-    }
+    var abilityResponse : [AbilityAbility]?
+       
     
-    func fetchDetails(for ability: AbilityAbility){
-        provider.request(.getPokemonDetails(text: (ability.name!))) {[weak self] result in
-            switch result {
-            case .success(let response):
-                do {
-                    let ability = try JSONDecoder().decode(AbilityAbility.self, from: response.data)
-                    self?.delegate?.fetchedAbilities(name: ability.name ?? "N/A")
-                    self?.abilityResponse?.append(ability)
-                } catch  {
-                    self?.delegate?.fetchFailed(error: error)
+    
+    func fetchDetails(for ability: [AbilityElement]){
+        for i in ability {
+            provider.request(.getPokemonDetails(text: (i.ability?.name)!)) {[weak self] result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let ability = try JSONDecoder().decode(AbilityAbility.self, from: response.data)
+                        self?.delegate?.fetchedAbilities(name: ability.name ?? "N/A")
+                        self?.abilityResponse?.append(ability)
+                    } catch  {
+                        self?.delegate?.fetchFailed(error: error)
+                    }
+                    print("")
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-                print("")
-            case .failure(let error):
-                print(error.localizedDescription)
             }
         }
+        
+//        provider.request(.getPokemonDetails(text: (ability.ability?.name!)!)) {[weak self] result in
+//            switch result {
+//            case .success(let response):
+//                do {
+//                    let ability = try JSONDecoder().decode(AbilityAbility.self, from: response.data)
+//                    self?.delegate?.fetchedAbilities(name: ability.name ?? "N/A")
+//                    self?.abilityResponse?.append(ability)
+//                } catch  {
+//                    self?.delegate?.fetchFailed(error: error)
+//                }
+//                print("")
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
     }
     
 }
